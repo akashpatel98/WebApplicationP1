@@ -1,7 +1,7 @@
 from typing import List, Dict
 import mysql.connector
 import simplejson as json
-from flask import Flask, Response
+from flask import Flask, Response, render_template
 
 app = Flask(__name__)
 
@@ -42,4 +42,4 @@ def cities() -> str:
 
 
 if __name__ == '__main__':
-    app.run(hosts='0.0.0.0')
+    app.run(host='0.0.0.0')
