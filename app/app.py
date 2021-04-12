@@ -101,22 +101,20 @@ def api_edit(year_id) -> str:
     cursor = mysql.get_db().cursor()
     content = request.json
     inputData = (content['intYear'], content['intScore'], content['fldTitle'], year_id)
-    sql_update_query = """UPDATE tbldeniroImport t SET t.intYear = %s, t.intScore = %s, t.fldScore = %s, WHERE t.id = %s """
+    sql_update_query = """UPDATE tbldeniroImport t SET t.intYear = %s, t.intScore = %s, t.fldTitle = %s, WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
     return resp
 
 
-@app.route('/api/v1/cities', methods=['POST'])
+@app.route('/api/v1/deniro', methods=['POST'])
 def api_add() -> str:
     content = request.json
 
     cursor = mysql.get_db().cursor()
-    inputData = (content['fldName'], content['fldLat'], content['fldLong'],
-                 content['fldCountry'], content['fldAbbreviation'],
-                 content['fldCapitalStatus'], request.form.get('fldPopulation'))
-    sql_insert_query = """INSERT INTO tbldeniroImport (fldName,fldLat,fldLong,fldCountry,fldAbbreviation,fldCapitalStatus,fldPopulation) VALUES (%s, %s,%s, %s,%s, %s,%s) """
+    inputData = (content['intYear'], content['intScore'], content['fldTitle'])
+    sql_insert_query = """INSERT INTO tbldeniroImport (intYear,intScore,fldTitle) VALUES (%s, %s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
