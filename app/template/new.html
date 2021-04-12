@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/deniro/new" method="POST">
+    <div class="row">
+        <div class="col">
+            <label for="intYear">City Name</label>
+            <input id="intYear" type="text" class="form-control" placeholder="Year" name="intYear">
+        </div>
+        <div class="col">
+            <label for="intScore">City Abbreviation</label>
+            <input id="intScore" type="text" class="form-control" placeholder="int Score"
+                   name="intScore">
+        </div>
+        <div class="col">
+            <label for="fldTitle"> Score </label>
+            <input id="fldTitle" type="text" class="form-control" placeholder="Score" name="fldTitle">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+
+</form>
+
+{% endblock %}
