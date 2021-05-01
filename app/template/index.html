@@ -6,15 +6,16 @@
         <th scope="col">Year</th>
         <th scope="col">Score</th>
         <th scope="col">Title</th>
+        <th scope="col">Column_6</th>
     </tr>
     </thead>
     <tbody>
-    {% for city in cities %}
+    {% for deniro in deniros %}
     <tr>
-        <td><a href="view/{{Year.id}}">{{ year.intScore }}</a></td>
-        <td>{{ year.intYear }}</td>
-        <td>{{ year.intScore }}</td>
-        <td>{{ year.fldTitle}}</td>
+        <td><a href="view/{{deniro.id}}">{{ deniro.fldYear }}</a></td>
+        <td>{{ deniro.fldScore }}</td>
+        <td>{{ deniro.fldTitle }}</td>
+        <td>{{ deniro.fldColumn_6 }}</td>
     </tr>
     {% endfor %}
     </tbody>
